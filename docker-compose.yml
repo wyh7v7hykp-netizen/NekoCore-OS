@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  nekocore:
+    build: .
+    container_name: nekocore-os
+    ports:
+      - "3847:3847"
+    environment:
+      - PORT=3847
+      - NODE_ENV=production
+      # LLM Provider configs (set these in .env or cloud dashboard)
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OPENROUTER_MODEL=${OPENROUTER_MODEL:-anthropic/claude-sonnet}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}
+    volumes:
+      - nekocore_memories:/app/memories
+      - nekocore_data:/app/data
+      - nekocore_config:/app/Config
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3847/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  nekocore_memories:
+  nekocore_data:
+  nekocore_config:

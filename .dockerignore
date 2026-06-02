@@ -1,0 +1,7 @@
+.git
+.github
+docs
+*.md
+!QUICKSTART.md
+tests
+.gitignore
