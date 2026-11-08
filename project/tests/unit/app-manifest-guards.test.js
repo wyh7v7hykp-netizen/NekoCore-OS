@@ -101,3 +101,8 @@ test('optional apps total matches expected count (11 optional)', () => {
   const optionalApps = manifest.apps.filter(a => a.class === 'optional');
   assert.strictEqual(optionalApps.length, 11, 'manifest must classify exactly 11 apps as optional');
 });
+
+// TEMP: intentionally failing guard to trigger superagent ci-fix (will be removed by the fix)
+test('TEMP superagent trigger — this must fail', () => {
+  assert.strictEqual(1, 2, 'intentional failure to exercise ci-fix');
+});
