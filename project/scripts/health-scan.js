@@ -277,7 +277,7 @@ const CORE_REGISTRY = {
   'server/integrations/telegram.js': 'Telegram bot integration',
 
   // ---- Server: Config ----
-  'server/config/entity-network.json': 'Entity network registry seed',
+  'server/Config/entity-network.json': 'Entity network registry seed',
 
   // ---- Server: Data Templates ----
   'server/entityPaths.js': 'Entity path resolver',

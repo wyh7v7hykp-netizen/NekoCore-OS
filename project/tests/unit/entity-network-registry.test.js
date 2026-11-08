@@ -88,7 +88,7 @@ describe('EntityNetworkRegistry', () => {
     });
 
     test('should include loaded entities from config if file exists', () => {
-      const configPath = path.join(__dirname, '../../server/config/entity-network.json');
+      const configPath = path.join(__dirname, '../../server/Config/entity-network.json');
       const hasConfig = fs.existsSync(configPath);
       
       const entities = entityNetworkRegistry.listEntities();
@@ -142,7 +142,7 @@ describe('EntityNetworkRegistry', () => {
 
     test('should handle seed config capabilities', () => {
       // Assuming entity_research has 'web_search' capability
-      const configPath = path.join(__dirname, '../../server/config/entity-network.json');
+      const configPath = path.join(__dirname, '../../server/Config/entity-network.json');
       if (fs.existsSync(configPath)) {
         const found = entityNetworkRegistry.findByCapability('web_search');
         expect(Array.isArray(found)).toBe(true);
@@ -300,7 +300,7 @@ describe('EntityNetworkRegistry', () => {
 
   describe('seed config validation', () => {
     test('should load default entities from config file if present', () => {
-      const configPath = path.join(__dirname, '../../server/config/entity-network.json');
+      const configPath = path.join(__dirname, '../../server/Config/entity-network.json');
       if (fs.existsSync(configPath)) {
         const configContent = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
         configContent.entities.forEach(entity => {
@@ -311,7 +311,7 @@ describe('EntityNetworkRegistry', () => {
     });
 
     test('should have research entity with web_search capability in config', () => {
-      const configPath = path.join(__dirname, '../../server/config/entity-network.json');
+      const configPath = path.join(__dirname, '../../server/Config/entity-network.json');
       if (fs.existsSync(configPath)) {
         const found = entityNetworkRegistry.findByCapability('web_search');
         // May or may not be present depending on loaded config

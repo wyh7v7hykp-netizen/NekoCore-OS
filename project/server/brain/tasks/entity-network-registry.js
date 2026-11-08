@@ -1,7 +1,7 @@
 /**
  * Entity Network Registry
  * Manages discovery and configuration of entities on the LAN.
- * Loads static configuration from server/config/entity-network.json
+ * Loads static configuration from server/Config/entity-network.json
  * No dynamic broadcast; all entities are registered in config.
  */
 
@@ -11,7 +11,7 @@ const path = require('path');
 class EntityNetworkRegistry {
   constructor() {
     this.entities = new Map();
-    this.configPath = path.join(__dirname, '../../config/entity-network.json');
+    this.configPath = path.join(__dirname, '../../Config/entity-network.json');
     this.load();
   }
 

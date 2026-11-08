@@ -13,7 +13,7 @@ const fs = require('fs');
 // ── Section 1: Entity Network Registry — config load + API ──
 
 test('entity-network.json exists and is valid JSON', () => {
-  const configPath = path.join(__dirname, '../../server/config/entity-network.json');
+  const configPath = path.join(__dirname, '../../server/Config/entity-network.json');
   assert.ok(fs.existsSync(configPath), 'entity-network.json must exist');
   const raw = fs.readFileSync(configPath, 'utf-8');
   const config = JSON.parse(raw);
@@ -23,7 +23,7 @@ test('entity-network.json exists and is valid JSON', () => {
 });
 
 test('entity-network.json entities have required fields', () => {
-  const configPath = path.join(__dirname, '../../server/config/entity-network.json');
+  const configPath = path.join(__dirname, '../../server/Config/entity-network.json');
   const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
   for (const ent of config.entities) {
     assert.ok(ent.id, `entity must have id: ${JSON.stringify(ent)}`);
