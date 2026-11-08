@@ -200,7 +200,7 @@ function resolvePreferredRuntime(platform, options = {}) {
   }
 
   if (platform === 'win32') {
-    const executablePath = resolveWindowsExecutablePath(cfg.exe);
+    const executablePath = options.executablePath || resolveWindowsExecutablePath(cfg.exe);
     if (!executablePath) {
       return {
         ok: false,
